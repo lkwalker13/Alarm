@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED946EC328401C9A00B15668 /* AlarmaData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED946EC128401C9A00B15668 /* AlarmaData.xcdatamodeld */; };
+		ED946EC528401E2800B15668 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED946EC428401E2800B15668 /* DataManager.swift */; };
 		EDC0B788283F5E5000A78CDA /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC0B787283F5E5000A78CDA /* CityModel.swift */; };
 		EDC52CB92840030000515A77 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC52CB72840030000515A77 /* TableCell.swift */; };
 		EDC52CBA2840030000515A77 /* TableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDC52CB82840030000515A77 /* TableCell.xib */; };
@@ -25,10 +27,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ED946EC228401C9A00B15668 /* CityData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CityData.xcdatamodel; sourceTree = "<group>"; };
+		ED946EC428401E2800B15668 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		EDC0B787283F5E5000A78CDA /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
 		EDC52CB72840030000515A77 /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
 		EDC52CB82840030000515A77 /* TableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableCell.xib; sourceTree = "<group>"; };
-		EDF9BD13283D39F70088CA8A /* Alarm v.2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Alarm v.2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDF9BD13283D39F70088CA8A /* Alarmv.2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alarmv.2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF9BD16283D39F70088CA8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDF9BD18283D39F70088CA8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EDF9BD22283D39FA0088CA8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -93,7 +97,7 @@
 		EDF9BD0A283D39F70088CA8A = {
 			isa = PBXGroup;
 			children = (
-				EDF9BD15283D39F70088CA8A /* Alarm v.2 */,
+				EDF9BD15283D39F70088CA8A /* Alarmv.2 */,
 				EDF9BD14283D39F70088CA8A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,12 +105,12 @@
 		EDF9BD14283D39F70088CA8A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EDF9BD13283D39F70088CA8A /* Alarm v.2.app */,
+				EDF9BD13283D39F70088CA8A /* Alarmv.2.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EDF9BD15283D39F70088CA8A /* Alarm v.2 */ = {
+		EDF9BD15283D39F70088CA8A /* Alarmv.2 */ = {
 			isa = PBXGroup;
 			children = (
 				EDF9BD44283D4A930088CA8A /* Core */,
@@ -117,7 +121,7 @@
 				EDF9BD35283D424E0088CA8A /* Extensions */,
 				EDF9BD42283D4A490088CA8A /* Resources */,
 			);
-			path = "Alarm v.2";
+			path = Alarmv.2;
 			sourceTree = "<group>";
 		};
 		EDF9BD35283D424E0088CA8A /* Extensions */ = {
@@ -152,6 +156,8 @@
 		EDF9BD43283D4A810088CA8A /* AlarmData */ = {
 			isa = PBXGroup;
 			children = (
+				ED946EC128401C9A00B15668 /* AlarmaData.xcdatamodeld */,
+				ED946EC428401E2800B15668 /* DataManager.swift */,
 			);
 			path = AlarmData;
 			sourceTree = "<group>";
@@ -185,9 +191,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EDF9BD12283D39F70088CA8A /* Alarm v.2 */ = {
+		EDF9BD12283D39F70088CA8A /* Alarmv.2 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EDF9BD2A283D39FA0088CA8A /* Build configuration list for PBXNativeTarget "Alarm v.2" */;
+			buildConfigurationList = EDF9BD2A283D39FA0088CA8A /* Build configuration list for PBXNativeTarget "Alarmv.2" */;
 			buildPhases = (
 				EDF9BD0F283D39F70088CA8A /* Sources */,
 				EDF9BD10283D39F70088CA8A /* Frameworks */,
@@ -197,9 +203,9 @@
 			);
 			dependencies = (
 			);
-			name = "Alarm v.2";
+			name = Alarmv.2;
 			productName = "Alarm v.2";
-			productReference = EDF9BD13283D39F70088CA8A /* Alarm v.2.app */;
+			productReference = EDF9BD13283D39F70088CA8A /* Alarmv.2.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -217,7 +223,7 @@
 					};
 				};
 			};
-			buildConfigurationList = EDF9BD0E283D39F70088CA8A /* Build configuration list for PBXProject "Alarm v.2" */;
+			buildConfigurationList = EDF9BD0E283D39F70088CA8A /* Build configuration list for PBXProject "Alarmv.2" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -230,7 +236,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EDF9BD12283D39F70088CA8A /* Alarm v.2 */,
+				EDF9BD12283D39F70088CA8A /* Alarmv.2 */,
 			);
 		};
 /* End PBXProject section */
@@ -256,11 +262,13 @@
 				EDF9BD3A283D462F0088CA8A /* GlobalTimeViewController.swift in Sources */,
 				EDF9BD40283D466E0088CA8A /* TimerViewController.swift in Sources */,
 				EDF9BD3C283D46440088CA8A /* AlarmViewController.swift in Sources */,
+				ED946EC528401E2800B15668 /* DataManager.swift in Sources */,
 				EDC0B788283F5E5000A78CDA /* CityModel.swift in Sources */,
 				EDF9BD49283D50590088CA8A /* CititesViewController.swift in Sources */,
 				EDF9BD17283D39F70088CA8A /* AppDelegate.swift in Sources */,
 				EDC52CB92840030000515A77 /* TableCell.swift in Sources */,
 				EDF9BD47283D4CDA0088CA8A /* Constants.swift in Sources */,
+				ED946EC328401C9A00B15668 /* AlarmaData.xcdatamodeld in Sources */,
 				EDF9BD3E283D46520088CA8A /* StopWatchViewController.swift in Sources */,
 				EDF9BD37283D42A80088CA8A /* View+AnchoredConstraints.swift in Sources */,
 				EDF9BD2E283D3AC80088CA8A /* TabBarViewController.swift in Sources */,
@@ -407,7 +415,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5NL9LC367A;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Alarm v.2/Resources/Info.plist";
+				INFOPLIST_FILE = Alarmv.2/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -435,7 +443,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5NL9LC367A;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Alarm v.2/Resources/Info.plist";
+				INFOPLIST_FILE = Alarmv.2/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -457,7 +465,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EDF9BD0E283D39F70088CA8A /* Build configuration list for PBXProject "Alarm v.2" */ = {
+		EDF9BD0E283D39F70088CA8A /* Build configuration list for PBXProject "Alarmv.2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EDF9BD28283D39FA0088CA8A /* Debug */,
@@ -466,7 +474,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EDF9BD2A283D39FA0088CA8A /* Build configuration list for PBXNativeTarget "Alarm v.2" */ = {
+		EDF9BD2A283D39FA0088CA8A /* Build configuration list for PBXNativeTarget "Alarmv.2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EDF9BD2B283D39FA0088CA8A /* Debug */,
@@ -476,6 +484,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		ED946EC128401C9A00B15668 /* AlarmaData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				ED946EC228401C9A00B15668 /* CityData.xcdatamodel */,
+			);
+			currentVersion = ED946EC228401C9A00B15668 /* CityData.xcdatamodel */;
+			path = AlarmaData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EDF9BD0B283D39F70088CA8A /* Project object */;
 }

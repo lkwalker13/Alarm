@@ -42,7 +42,7 @@ final class GlobalTimeViewController: UIViewController {
     }()
     
     var citiesCV = CititesViewController()
-    var selectedCities = [CityModel(name: "HAH", continent: "", abbreviation: "")]
+    var selectedCities = [CityData]()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -62,6 +62,7 @@ final class GlobalTimeViewController: UIViewController {
         tableview.register(UINib(nibName: "TableCell", bundle: nil), forCellReuseIdentifier: "TableCell")
         tableview.delegate = self
         tableview.dataSource = self
+        selectedCities = DataManager.shared.cities()
         
     }
     
@@ -93,22 +94,27 @@ final class GlobalTimeViewController: UIViewController {
     }
     
     func getSelectedCity(city: CityModel) {
-        selectedCities.append(city)
-        DispatchQueue.main.async {
-            self.tableview.reloadData()
-        }
+        let savedCity = DataManager.shared.city(name: city.name, continent: city.continent, abbreviation: city.abbreviation)
+        selectedCities.append(savedCity)
+        DataManager.shared.save()
+        selectedCities = DataManager.shared.cities()
+        #warning("Также не рефрешится база")
+        #warning("Проблема с гит хаб аутентификацией")
+        tableview.reloadData()
         
     }
 }
 
 extension GlobalTimeViewController:UITableViewDelegate,UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return selectedCities.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as! TableCell
-        cell.cityLabel.text = selectedCities[indexPath.row].name
+        let city = selectedCities[indexPath.row]
+        cell.cityLabel.text = city.name
+        cell.abbreviationLabel.text = "Сегодня," + city.abbreviation!
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
