@@ -7,9 +7,10 @@
 
 import UIKit
 
-final class GlobalTimeViewController: UIViewController {
-    
-    
+final class GlobalTimeVC: UIViewController, CitiesVCDelegate {
+   
+    let citiesVC = CitiesVC()
+   
     var addCityButton:UIButton = {
         let button = UIButton()
         button.tintColor = .orange
@@ -41,19 +42,20 @@ final class GlobalTimeViewController: UIViewController {
         return tableView
     }()
     
-    var citiesCV = CititesViewController()
+    var citiesCV = CitiesVC()
     var selectedCities = [CityData]()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setNeedsStatusBarAppearanceUpdate()
-        
-        
     }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         .lightContent
     }
-
+    
+    //MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
@@ -62,18 +64,23 @@ final class GlobalTimeViewController: UIViewController {
         tableview.register(UINib(nibName: "TableCell", bundle: nil), forCellReuseIdentifier: "TableCell")
         tableview.delegate = self
         tableview.dataSource = self
+        citiesVC.controllerDelegate = self
         selectedCities = DataManager.shared.cities()
         
     }
     
+    //MARK: - Actions
     @objc
     func removeCityPressed() {
-        print("removed")
+        if tableview.isEditing {
+            tableview.isEditing = false
+        } else {
+            tableview.isEditing = true
+        }
     }
     
     @objc
     func addCityPressed() {
-        let citiesVC = CititesViewController()
         present(citiesVC, animated: true, completion: nil)
     }
     
@@ -91,34 +98,79 @@ final class GlobalTimeViewController: UIViewController {
         
         view.addSubview(tableview)
         tableview.anchor(top: timeLabel.bottomAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: view.bottomAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor,padding: .init(top: 10, left: 20, bottom: 0, right: 20))
+        tableview.backgroundColor = .black
+    }
+    func didSelectCity(_ city: CityModel) {
+        
+        let savedCity = DataManager.shared.city(name: city.name, continent: city.continent, abbreviation: city.abbreviation)
+        
+        selectedCities.append(savedCity)
+        
+        DataManager.shared.save()
+        
+        selectedCities = DataManager.shared.cities()
+    
+        tableview.reloadData()
     }
     
-    func getSelectedCity(city: CityModel) {
-        let savedCity = DataManager.shared.city(name: city.name, continent: city.continent, abbreviation: city.abbreviation)
-        selectedCities.append(savedCity)
-        DataManager.shared.save()
-        selectedCities = DataManager.shared.cities()
-        #warning("Также не рефрешится база")
-        #warning("Проблема с гит хаб аутентификацией")
-        tableview.reloadData()
-        
+    func getTime(idCity:String,idContinent:String)->String {
+        let currentDate = Date()
+        let format = DateFormatter()
+        format.timeZone = TimeZone(identifier: "\(idContinent)/\(idCity)")
+        format.dateFormat = "HH:mm"
+        let dateString = format.string(from: currentDate)
+        return dateString
     }
 }
 
-extension GlobalTimeViewController:UITableViewDelegate,UITableViewDataSource {
+extension GlobalTimeVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return selectedCities.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableview.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as! TableCell
+        
         let city = selectedCities[indexPath.row]
+        let currentTime = getTime(idCity: city.continent!, idContinent: city.name!)
+        
         cell.cityLabel.text = city.name
         cell.abbreviationLabel.text = "Сегодня," + city.abbreviation!
+        cell.timeLabel.text = currentTime
+        
+ 
+        
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 105
     }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tableView.beginUpdates()
+            let city = selectedCities[indexPath.row]
+            DataManager.shared.persistentContainer.viewContext.delete(city)
+              selectedCities.remove(at: indexPath.row)
+              tableview.deleteRows(at: [indexPath], with: .fade)
+            DataManager.shared.save()
+            tableView.endUpdates()
+        }
+    }
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let itemToMove = selectedCities[sourceIndexPath.row]
+        selectedCities.remove(at: sourceIndexPath.row)
+        selectedCities.insert(itemToMove, at: destinationIndexPath.row)
+    }
+  
     
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 class DataManager {
     
     static let shared = DataManager()
@@ -57,6 +58,8 @@ class DataManager {
         }
         return fetchedCities
     }
+    
+
     public func clearDatabase() {
         guard let url = persistentContainer.persistentStoreDescriptions.first?.url else { return }
 

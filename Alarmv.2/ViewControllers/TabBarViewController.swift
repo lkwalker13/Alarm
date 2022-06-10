@@ -24,7 +24,7 @@ import UIKit
     }
     
   private  func addControllersToTabBar() {
-        let globalTimeVC = createViewControllers(viewcontroller: GlobalTimeViewController(), title: Constants.Labels.globalTimeLabel, image:UIImage(named: Constants.Image.globalTimeImage) )
+        let globalTimeVC = createViewControllers(viewcontroller: GlobalTimeVC(), title: Constants.Labels.globalTimeLabel, image:UIImage(named: Constants.Image.globalTimeImage) )
         let alarmVC = createViewControllers(viewcontroller: AlarmViewController(), title: Constants.Labels.alarmLabel, image: UIImage(named: Constants.Image.alarmImage))
         let stopWatchVC = createViewControllers(viewcontroller: StopWatchViewController(), title: Constants.Labels.stopWatchLabel, image: UIImage(named: Constants.Image.stopwatchImage))
         let timerVC = createViewControllers(viewcontroller: TimerViewController(), title: Constants.Labels.timerLabel, image: UIImage(named: Constants.Image.timerImage))

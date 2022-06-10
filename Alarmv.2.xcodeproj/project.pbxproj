@@ -18,12 +18,12 @@
 		EDF9BD26283D39FA0088CA8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDF9BD24283D39FA0088CA8A /* LaunchScreen.storyboard */; };
 		EDF9BD2E283D3AC80088CA8A /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF9BD2D283D3AC80088CA8A /* TabBarViewController.swift */; };
 		EDF9BD37283D42A80088CA8A /* View+AnchoredConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF9BD36283D42A80088CA8A /* View+AnchoredConstraints.swift */; };
-		EDF9BD3A283D462F0088CA8A /* GlobalTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF9BD39283D462F0088CA8A /* GlobalTimeViewController.swift */; };
+		EDF9BD3A283D462F0088CA8A /* GlobalTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF9BD39283D462F0088CA8A /* GlobalTimeVC.swift */; };
 		EDF9BD3C283D46440088CA8A /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF9BD3B283D46440088CA8A /* AlarmViewController.swift */; };
 		EDF9BD3E283D46520088CA8A /* StopWatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF9BD3D283D46520088CA8A /* StopWatchViewController.swift */; };
 		EDF9BD40283D466E0088CA8A /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF9BD3F283D466E0088CA8A /* TimerViewController.swift */; };
 		EDF9BD47283D4CDA0088CA8A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF9BD46283D4CDA0088CA8A /* Constants.swift */; };
-		EDF9BD49283D50590088CA8A /* CititesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF9BD48283D50590088CA8A /* CititesViewController.swift */; };
+		EDF9BD49283D50590088CA8A /* CitiesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF9BD48283D50590088CA8A /* CitiesVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,12 +40,12 @@
 		EDF9BD27283D39FA0088CA8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDF9BD2D283D3AC80088CA8A /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		EDF9BD36283D42A80088CA8A /* View+AnchoredConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+AnchoredConstraints.swift"; sourceTree = "<group>"; };
-		EDF9BD39283D462F0088CA8A /* GlobalTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalTimeViewController.swift; sourceTree = "<group>"; };
+		EDF9BD39283D462F0088CA8A /* GlobalTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalTimeVC.swift; sourceTree = "<group>"; };
 		EDF9BD3B283D46440088CA8A /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
 		EDF9BD3D283D46520088CA8A /* StopWatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewController.swift; sourceTree = "<group>"; };
 		EDF9BD3F283D466E0088CA8A /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		EDF9BD46283D4CDA0088CA8A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		EDF9BD48283D50590088CA8A /* CititesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CititesViewController.swift; sourceTree = "<group>"; };
+		EDF9BD48283D50590088CA8A /* CitiesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +62,8 @@
 		EDC0B782283EBE3E00A78CDA /* GlobalTimeViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				EDF9BD39283D462F0088CA8A /* GlobalTimeViewController.swift */,
-				EDF9BD48283D50590088CA8A /* CititesViewController.swift */,
+				EDF9BD39283D462F0088CA8A /* GlobalTimeVC.swift */,
+				EDF9BD48283D50590088CA8A /* CitiesVC.swift */,
 				EDC52CB6284002D100515A77 /* Cells */,
 			);
 			path = GlobalTimeViewControllers;
@@ -259,12 +259,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDF9BD3A283D462F0088CA8A /* GlobalTimeViewController.swift in Sources */,
+				EDF9BD3A283D462F0088CA8A /* GlobalTimeVC.swift in Sources */,
 				EDF9BD40283D466E0088CA8A /* TimerViewController.swift in Sources */,
 				EDF9BD3C283D46440088CA8A /* AlarmViewController.swift in Sources */,
 				ED946EC528401E2800B15668 /* DataManager.swift in Sources */,
 				EDC0B788283F5E5000A78CDA /* CityModel.swift in Sources */,
-				EDF9BD49283D50590088CA8A /* CititesViewController.swift in Sources */,
+				EDF9BD49283D50590088CA8A /* CitiesVC.swift in Sources */,
 				EDF9BD17283D39F70088CA8A /* AppDelegate.swift in Sources */,
 				EDC52CB92840030000515A77 /* TableCell.swift in Sources */,
 				EDF9BD47283D4CDA0088CA8A /* Constants.swift in Sources */,

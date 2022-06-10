@@ -7,8 +7,15 @@
 
 import UIKit
 
+protocol CitiesVCDelegate {
+    
+    func didSelectCity(_ city: CityModel)
+}
 
-final class CititesViewController: UIViewController {
+final class CitiesVC: UIViewController {
+    
+    var controllerDelegate: CitiesVCDelegate?
+    
     /// MARK: Properties
     private var titleLabel:UILabel = {
         let title = UILabel()
@@ -112,7 +119,7 @@ final class CititesViewController: UIViewController {
     }
 }
 // MARK: TableViewMethods
-extension CititesViewController:UITableViewDelegate,UITableViewDataSource {
+extension CitiesVC:UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if !filteredCityModelsArray.isEmpty {
@@ -123,7 +130,9 @@ extension CititesViewController:UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.backgroundColor = UIColor(named: Constants.Colors.darkGray)
+        
         var city = CityModel(name: "", continent: "", abbreviation: "")
+        
         if !filteredCityModelsArray.isEmpty {
             
             city = filteredCityModelsArray[indexPath.row]
@@ -140,14 +149,16 @@ extension CititesViewController:UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let gloabalVC = GlobalTimeViewController()
+        //let globalVC = GlobalTimeViewController()
         let city = cityModelsArray[indexPath.row]
-        gloabalVC.getSelectedCity(city: city)
+        
+        controllerDelegate?.didSelectCity(city)
+        
         dismiss(animated: true, completion: nil)
     }
 }
 
-extension CititesViewController: UITextFieldDelegate {
+extension CitiesVC: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if let text = textField.text {
             if string.count == 0 {
